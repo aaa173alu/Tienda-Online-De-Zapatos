@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="TiendaZapatosGen.Infraestructure"
+		                   namespace="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos">
+		    
+		    
+			
+				<class name="PedidoNH" table="Pedido"> 
+						<id name="IdPedido" column="idPedidoPedido"/> 
+			
+					
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Total" type="float"> 
+						<column name="total"  not-null="true"/>
+					</property>
+					<property name="DireccionEnvio" type="string"> 
+						<column name="direccionEnvio"  not-null="true"/>
+					</property>
+					<property name="Estado" type="integer"> 
+						<column name="estado"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="ItemPedido" class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.ItemPedidoNH" >	
+								<column name="FK_idItemPedido_idItemPedido"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Usuario" class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.UsuarioNH" >	
+								<column name="FK_email_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+					
+							<many-to-one name="Pedido" class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.PagoNH" >
+								<column name="FK_idPagoPago_idPedido"/> 
+        					</many-to-one>
+					 
+						
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PedidoNHReadAllHQL">from PedidoNH</query>
+		</hibernate-mapping>
+	

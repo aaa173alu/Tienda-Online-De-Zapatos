@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+		  <ItemGroup>
+		  
+	<EmbeddedResource Include="Mappings\TiendaZapatos\usuario.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\administrador.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\producto.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\itempedido.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\pedido.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\ajustes.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\valoracion.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\favoritos.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\sesion.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\categoria.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\pago.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\ayuda.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\perfil.hbm.xml" />
+	<EmbeddedResource Include="Mappings\TiendaZapatos\carrito.hbm.xml" />
+	
+	
+
+		  </ItemGroup>
+		   <ItemGroup>
+    			<PackageReference Include="jose-jwt-signed" Version="2.3.0" />
+   				<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+   				<PackageReference Include="NHibernate" Version="5.5.2" />
+   				<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+   				
+   				<!--  /*PROTECTED REGION ID(externalLibraries) ENABLED START*/ -->
+   				<!--  /*PROTECTED REGION END*/ -->
+  		  </ItemGroup>
+		  <ItemGroup>
+		    <Content Include="hibernate.cfg.xml">
+		      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		    </Content>
+		  </ItemGroup>
+		  <ItemGroup>
+   			 <ProjectReference Include="..\TiendaZapatosGen.ApplicationCore\TiendaZapatosGen.ApplicationCore.csproj"/>
+   		  </ItemGroup>
+		</Project>

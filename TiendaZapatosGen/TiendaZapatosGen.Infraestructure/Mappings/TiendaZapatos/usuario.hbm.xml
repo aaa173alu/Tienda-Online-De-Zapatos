@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="TiendaZapatosGen.Infraestructure"
+		                   namespace="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos">
+		    
+		    
+			
+				<class name="UsuarioNH" table="Usuario"> 
+						<id name="Email" column="email"/> 
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Contrasenya" type="string"> 
+						<column name="contrasenya"  not-null="true"/>
+					</property>
+					<property name="Telefono" type="string"> 
+						<column name="telefono"  not-null="true"/>
+					</property>
+					<property name="Direccion" type="string"> 
+						<column name="direccion"  not-null="true"/>
+					</property>
+					<property name="Rol" type="string"> 
+						<column name="rol"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Valora" >
+							<key>
+							
+								
+								<column name="FK_email_idValoracion_1"/>
+					      	</key>
+							<one-to-many class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.ValoracionNH"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="ItemPedido" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.ItemPedidoNH"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Pedido" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.PedidoNH"/>
+					    </bag>
+					
+			
+		  			
+					
+							   <one-to-one name="Sesion" class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.SesionNH" property-ref="Usuario" />							
+					 
+						
+			
+		  			
+					
+							<many-to-one name="Usuario_0" class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.PerfilNH" >
+								<column name="FK_idPerfinPerfil_idUsuario_0"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+					
+							<many-to-one name="Usuario_1" class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.AyudaNH" >
+								<column name="FK_idAyudaAyuda_idUsuario_1"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+					
+							<many-to-one name="Usuario_2" class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.CarritoNH" >
+								<column name="FK_idCarritoCarrito_idUsuario_2"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+						<bag name="Favoritos" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.FavoritosNH"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Ajustes" table="[ajustes_usuario]" inverse="true" >
+							<key>
+								
+									<column name="FK_email_idUsuario"/> 
+							</key>
+      						<many-to-many class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.AjustesNH">
+									<column name="FK_idAjustes_idAjustes"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioNHReadAllHQL">from UsuarioNH</query>
+		</hibernate-mapping>
+	

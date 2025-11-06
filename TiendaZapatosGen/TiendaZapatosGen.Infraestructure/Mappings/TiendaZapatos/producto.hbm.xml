@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="TiendaZapatosGen.Infraestructure"
+		                   namespace="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos">
+		    
+		    
+			
+				<class name="ProductoNH" table="Producto"> 
+						<id name="IdProducto" column="idProductoProducto"/> 
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+					<property name="Precio" type="float"> 
+						<column name="precio"  not-null="true"/>
+					</property>
+					<property name="TallasDisponibles" type="string"> 
+						<column name="tallasDisponibles"  not-null="true"/>
+					</property>
+					<property name="Fotos" type="string"> 
+						<column name="fotos"  not-null="true"/>
+					</property>
+					<property name="Stock" type="integer"> 
+						<column name="stock"  not-null="true"/>
+					</property>
+					<property name="Destacado" type="boolean"> 
+						<column name="destacado"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Valoracion" >
+							<key>
+							
+								
+								<column name="FK_idProductoProducto_idProducto"/>
+					      	</key>
+							<one-to-many class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.ValoracionNH"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Categoria_0" >
+							<key>
+							
+								
+								<column name="FK_idProductoProducto_idCategoria"/>
+					      	</key>
+							<one-to-many class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.CategoriaNH"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ProductoNHReadAllHQL">from ProductoNH</query>
+		  <query name="ProductoNHdameEconomicoHQL"><![CDATA[FROM ProductoNH pro where pro.Precio < 70]]></query>
+		  <query name="ProductoNHdameDestacadosHQL"><![CDATA[FROM ProductoNH pro WHERE pro.Destacado = true]]></query>
+		  <query name="ProductoNHdamePorPrecioHQL"><![CDATA[FROM ProductoNH p WHERE p.Precio >= 50 AND p.Precio <= 100]]></query>
+		  <query name="ProductoNHdameColorHQL"><![CDATA[FROM ProductoNH pro WHERE pro.Color = :color]]></query>
+		</hibernate-mapping>
+	

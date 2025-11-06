@@ -1,0 +1,6 @@
+package workflow;
+
+public class Casilla {
+    private String nombre;
+}
+

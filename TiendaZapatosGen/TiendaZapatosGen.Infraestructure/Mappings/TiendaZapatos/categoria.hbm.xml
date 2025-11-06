@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="TiendaZapatosGen.Infraestructure"
+		                   namespace="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos">
+		    
+		    
+			
+				<class name="CategoriaNH" table="Categoria"> 
+						<id name="IdCategoria" column="idCategoriaCategoria"/> 
+			
+					
+					<property name="Attribute" type="string"> 
+						<column name="attribute"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Categoria" class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.ProductoNH" >	
+								<column name="FK_idProductoProducto_idCategoria"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CategoriaNHReadAllHQL">from CategoriaNH</query>
+		</hibernate-mapping>
+	

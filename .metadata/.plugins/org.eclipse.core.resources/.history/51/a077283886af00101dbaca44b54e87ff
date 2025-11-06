@@ -1,0 +1,6 @@
+package workflow;
+
+public class Monopoly {
+	    private Tablero tablero;
+	
+}

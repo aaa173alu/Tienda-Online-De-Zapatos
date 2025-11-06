@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="TiendaZapatosGen.Infraestructure"
+		                   namespace="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos">
+		    
+		    
+			
+				<class name="SesionNH" table="Sesion"> 
+						<id name="IdSesion" column="idSesionSesion"/> 
+			
+					
+					<property name="FechaInicio" type="date"> 
+						<column name="fechaInicio"  not-null="true"/>
+					</property>
+					<property name="FechaFin" type="date"> 
+						<column name="fechaFin"  not-null="true"/>
+					</property>
+					<property name="Activa" type="boolean"> 
+						<column name="activa"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+					
+							<many-to-one name="Usuario" class="TiendaZapatosGen.Infraestructure.EN.TiendaZapatos.UsuarioNH" >
+								<column name="FK_email_idUsuario"/> 
+        					</many-to-one>
+					 
+						
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="SesionNHReadAllHQL">from SesionNH</query>
+		</hibernate-mapping>
+	
